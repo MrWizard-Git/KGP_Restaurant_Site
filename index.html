@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAJNAWABI - A Unit of Rajbari | Royal Mughal Dining</title>
+
+    <!-- Social Media Optimization (SMO) / Open Graph Meta Tags -->
+    <meta name="description" content="Experience authentic Nawabi and Mughlai dining at RAJNAWABI (A Unit of Rajbari). Dum Biryanis, Kebabs, and Royal Ambience.">
+    <meta name="keywords" content="Rajnawabi, Rajbari, Mughal Dining, Mughlai Restaurant, Mutton Biryani, Champaran Handi, Zomato, Swiggy">
+    <meta property="og:title" content="RAJNAWABI - Royal Mughal Dining | A Unit of Rajbari">
+    <meta property="og:description" content="Step into a realm of hand-carved teak arches, shimmering chandeliers, and centuries-old royal Nawabi recipes.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=1000&auto=format&fit=crop">
+    <meta property="og:url" content="https://rajnawabi.com">
+    <meta property="og:type" content="restaurant">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RAJNAWABI - Royal Mughal Dining">
+    <meta name="twitter:description" content="Authentic Mughal cuisine, Dum Biryanis, and royal dining experience.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=1000&auto=format&fit=crop">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mahogany: {
+                            950: '#080403',
+                            900: '#110906',
+                            800: '#1c100b',
+                            700: '#2a1911',
+                        },
+                        gold: {
+                            400: '#f0d283',
+                            500: '#d4af37',
+                            600: '#b8860b',
+                            700: '#996515',
+                        },
+                        swiggy: '#FC8019',
+                        zomato: '#CB202D'
+                    },
+                    fontFamily: {
+                        royal: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #080403; }
+        ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 3px; }
+        .gold-glow { text-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+        .gold-border-glow { box-shadow: 0 0 20px rgba(212, 175, 55, 0.15); }
+        .bg-mughal-pattern {
+            background-image: radial-gradient(rgba(212, 175, 55, 0.07) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-mahogany-950 text-stone-300 font-sans antialiased overflow-x-hidden selection:bg-gold-500 selection:text-mahogany-950">
+
+    <!-- FULL PAGE MODERN LOADING ANIMATION OVERLAY -->
+    <div id="loader-wrapper" class="fixed inset-0 z-[9999] bg-mahogany-950 flex flex-col items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-mughal-pattern opacity-25 pointer-events-none"></div>
+        <div class="relative z-10 text-center space-y-6 px-4">
+            <div class="w-20 h-20 rounded-full border border-gold-500/40 bg-gold-500/5 flex items-center justify-center mx-auto text-gold-500 text-3xl gold-glow">
+                <i class="fa-solid fa-crown animate-bounce"></i>
+            </div>
+            <div class="space-y-2">
+                <h2 class="font-royal text-3xl md:text-5xl font-bold text-gold-500 tracking-widest gold-glow uppercase">RAJNAWABI</h2>
+                <p class="text-[10px] uppercase tracking-[0.3em] text-stone-400 font-semibold">Unrolling the Royal Dastarkhwan...</p>
+            </div>
+            <div class="w-48 h-1 bg-mahogany-900 rounded-full overflow-hidden mx-auto border border-gold-500/20">
+                <div id="loader-progress" class="h-full bg-gradient-to-r from-gold-600 to-gold-400 w-0"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOP ANNOUNCEMENT BAR (Hidden on mobile view for a cleaner layout) -->
+    <div class="hidden sm:block bg-mahogany-900 border-b border-gold-500/20 py-2 text-xs text-stone-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
+            <div class="flex flex-wrap justify-center sm:justify-start items-center gap-4 sm:gap-6">
+                <span><i class="fa-regular fa-clock text-gold-500 mr-1.5"></i> Open Daily: 12:00 PM - 11:30 PM</span>
+                <span class="hidden md:inline"><i class="fa-solid fa-location-dot text-gold-500 mr-1.5"></i> Grand Mughal Gateway, Rajbari Campus</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="tel:+919876543210" class="hover:text-gold-500 transition-colors"><i class="fa-solid fa-phone text-gold-500 mr-1"></i> +91 98765 43210</a>
+                <span class="text-stone-700">|</span>
+                <div class="flex gap-3">
+                    <a href="#" class="hover:text-gold-500 p-1"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-gold-500 p-1"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-mahogany-950/95 backdrop-blur-md border-b border-gold-500/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#" class="flex flex-col">
+                <span class="text-xl sm:text-2xl md:text-3xl font-royal font-bold text-gold-500 tracking-wider gold-glow uppercase">RAJNAWABI</span>
+                <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.25em] text-stone-400 -mt-1 font-semibold">A Unit of Rajbari</span>
+            </a>
+
+            <!-- Navigation Links (Desktop View - 1024px and above) -->
+            <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-medium tracking-wide">
+                <a href="#home" class="text-gold-500 hover:text-gold-400 transition-colors">Home</a>
+                <a href="#about" class="hover:text-gold-500 transition-colors">About Us</a>
+                <a href="#why-us" class="hover:text-gold-500 transition-colors">Royal Heritage</a>
+                <a href="#menu" class="hover:text-gold-500 transition-colors">Royal Menu</a>
+                <a href="#order-online" class="hover:text-gold-500 transition-colors">Order Online</a>
+                <a href="#gallery" class="hover:text-gold-500 transition-colors">Gallery</a>
+                <a href="#social-smo" class="hover:text-gold-500 transition-colors">Social</a>
+                <a href="#contact" class="hover:text-gold-500 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Reservation CTA Button (Desktop View - 1024px and above) -->
+            <div class="hidden lg:block">
+                <a href="#contact" class="px-4 lg:px-5 py-2.5 bg-gradient-to-r from-gold-600 to-gold-500 text-mahogany-950 font-semibold text-xs tracking-wider uppercase rounded-sm hover:from-gold-500 hover:to-gold-400 shadow-lg shadow-gold-500/10 transition-all">
+                    Reserve Royal Table
+                </a>
+            </div>
+
+            <!-- Mobile & Tablet Hamburger Toggle (Visible below 1024px, covering Mobile & iPad Mini/Tablets) -->
+            <button id="mobile-menu-btn" class="lg:hidden text-gold-500 p-2 focus:outline-none border border-gold-500/30 rounded bg-gold-500/5 hover:bg-gold-500/10 transition-colors" aria-label="Toggle Navigation Menu">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- NEW DESIGN: Mobile & Tablet Menu Dropdown / Drawer (Visible below 1024px) -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-mahogany-900/98 backdrop-blur-xl border-b border-gold-500/30 px-6 pt-5 pb-8 space-y-5 shadow-2xl transition-all">
+            <div class="flex items-center justify-between pb-3 border-b border-gold-500/20">
+                <div class="flex items-center gap-2 text-gold-500">
+                    <i class="fa-solid fa-crown text-sm"></i>
+                    <span class="font-royal text-base font-bold uppercase tracking-widest text-gold-400">Royal Directory</span>
+                </div>
+                <button id="mobile-menu-close" class="text-stone-400 hover:text-gold-400 text-xl p-1 focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <a href="#home" class="mobile-nav-link flex items-center gap-3 text-gold-500 font-medium py-2.5 px-3.5 rounded bg-gold-500/10 border border-gold-500/30 text-xs sm:text-sm">
+                    <i class="fa-solid fa-house w-5 text-center text-gold-500"></i> Home
+                </a>
+                <a href="#about" class="mobile-nav-link flex items-center gap-3 text-stone-300 hover:text-gold-400 font-medium py-2.5 px-3.5 rounded bg-mahogany-950/60 border border-gold-500/10 text-xs sm:text-sm transition-colors">
+                    <i class="fa-solid fa-circle-info w-5 text-center text-gold-500"></i> About Us
+                </a>
+                <a href="#why-us" class="mobile-nav-link flex items-center gap-3 text-stone-300 hover:text-gold-400 font-medium py-2.5 px-3.5 rounded bg-mahogany-950/60 border border-gold-500/10 text-xs sm:text-sm transition-colors">
+                    <i class="fa-solid fa-crown w-5 text-center text-gold-500"></i> Royal Heritage
+                </a>
+                <a href="#menu" class="mobile-nav-link flex items-center gap-3 text-stone-300 hover:text-gold-400 font-medium py-2.5 px-3.5 rounded bg-mahogany-950/60 border border-gold-500/10 text-xs sm:text-sm transition-colors">
+                    <i class="fa-solid fa-utensils w-5 text-center text-gold-500"></i> Royal Menu
+                </a>
+                <a href="#order-online" class="mobile-nav-link flex items-center gap-3 text-stone-300 hover:text-gold-400 font-medium py-2.5 px-3.5 rounded bg-mahogany-950/60 border border-gold-500/10 text-xs sm:text-sm transition-colors">
+                    <i class="fa-solid fa-motorcycle w-5 text-center text-gold-500"></i> Order Online
+                </a>
+                <a href="#gallery" class="mobile-nav-link flex items-center gap-3 text-stone-300 hover:text-gold-400 font-medium py-2.5 px-3.5 rounded bg-mahogany-950/60 border border-gold-500/10 text-xs sm:text-sm transition-colors">
+                    <i class="fa-solid fa-images w-5 text-center text-gold-500"></i> Gallery
+                </a>
+                <a href="#social-smo" class="mobile-nav-link flex items-center gap-3 text-stone-300 hover:text-gold-400 font-medium py-2.5 px-3.5 rounded bg-mahogany-950/60 border border-gold-500/10 text-xs sm:text-sm transition-colors">
+                    <i class="fa-solid fa-share-nodes w-5 text-center text-gold-500"></i> Social
+                </a>
+                <a href="#contact" class="mobile-nav-link flex items-center gap-3 text-stone-300 hover:text-gold-400 font-medium py-2.5 px-3.5 rounded bg-mahogany-950/60 border border-gold-500/10 text-xs sm:text-sm transition-colors">
+                    <i class="fa-solid fa-address-book w-5 text-center text-gold-500"></i> Contact
+                </a>
+            </div>
+
+            <div class="pt-3 border-t border-gold-500/20 space-y-3">
+                <a href="#contact" class="mobile-nav-link block text-center w-full py-3.5 bg-gradient-to-r from-gold-600 to-gold-500 text-mahogany-950 font-bold text-xs uppercase tracking-wider rounded shadow-md">
+                    Reserve Royal Table
+                </a>
+                <div class="flex items-center justify-center gap-4 text-xs text-stone-400 pt-1">
+                    <a href="tel:+919876543210" class="hover:text-gold-400 flex items-center gap-1"><i class="fa-solid fa-phone text-gold-500"></i> Call Us</a>
+                    <span class="text-stone-700">|</span>
+                    <a href="https://wa.me/919876543210" target="_blank" class="hover:text-gold-400 flex items-center gap-1"><i class="fa-brands fa-whatsapp text-gold-500"></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden bg-mughal-pattern py-12 lg:py-16">
+        <div class="absolute inset-0 bg-gradient-to-r from-mahogany-950 via-mahogany-950/80 to-transparent z-10"></div>
+        <div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left gsap-hero-text">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/5 text-gold-400 text-xs tracking-widest uppercase font-semibold mx-auto lg:mx-0">
+                    <i class="fa-solid fa-crown text-gold-500"></i> Authentic Nawabi Culinary Legacy
+                </div>
+                <h1 class="font-royal text-3xl sm:text-5xl xl:text-6xl font-bold leading-tight text-stone-100">
+                    Taste Royal <span class="text-gold-500 gold-glow italic">Mughlai Cuisine</span> Together with <span class="text-gold-400">Rajnawabi</span>
+                </h1>
+                <p class="text-stone-400 text-sm sm:text-base lg:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    Step into a realm of hand-carved teak arches, shimmering chandeliers, and centuries-old Nawabi secret recipes passed down through royal court kitchens.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+                    <a href="#menu" class="w-full sm:w-auto px-7 py-3.5 bg-gold-500 text-mahogany-950 font-bold text-xs tracking-widest uppercase rounded-sm hover:bg-gold-400 shadow-xl shadow-gold-500/20 transition-all flex items-center justify-center gap-2 group">
+                        Explore Royal Menu <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#order-online" class="w-full sm:w-auto px-7 py-3.5 border border-gold-500/40 text-gold-400 hover:border-gold-500 font-semibold text-xs tracking-widest uppercase rounded-sm transition-all hover:bg-gold-500/10 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-motorcycle text-gold-500"></i> Order Online
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-6 sm:pt-8 border-t border-gold-500/20 text-xs text-stone-400 text-center lg:text-left">
+                    <div>
+                        <span class="block text-gold-500 font-royal text-lg sm:text-xl font-bold">12:00 - 23:30</span>
+                        <span>Dining Hours</span>
+                    </div>
+                    <div>
+                        <span class="block text-gold-500 font-royal text-lg sm:text-xl font-bold">Dum Pukht</span>
+                        <span>Slow Cooked</span>
+                    </div>
+                    <div>
+                        <span class="block text-gold-500 font-royal text-lg sm:text-xl font-bold">Rajbari</span>
+                        <span>Grand Ambience</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 relative flex justify-center items-center gsap-hero-img mt-4 lg:mt-0">
+                <div class="relative w-72 h-72 sm:w-96 sm:h-96 max-w-full aspect-square">
+                    <div class="absolute inset-0 rounded-full border border-gold-500/20 animate-spin-slow"></div>
+                    <div class="absolute inset-4 rounded-full border border-dashed border-gold-500/30"></div>
+                    
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=1000&auto=format&fit=crop" alt="Rajnawabi Royal Dum Biryani" class="w-full h-full object-cover rounded-full shadow-2xl gold-border-glow">
+                    
+                    <div class="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-mahogany-900/90 border border-gold-500/40 backdrop-blur-md p-3 sm:p-4 rounded-lg shadow-xl flex items-center gap-3">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-500 text-sm sm:text-base">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <div>
+                            <p class="text-[11px] sm:text-xs font-bold text-stone-200">Signature Feast</p>
+                            <p class="text-[11px] sm:text-xs text-gold-400 font-royal font-semibold">Nawabi Mutton Biryani</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section id="about" class="py-16 sm:py-20 lg:py-24 relative bg-mahogany-900 border-y border-gold-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                <div class="lg:col-span-6 relative gsap-about-img">
+                    <div class="relative rounded-lg overflow-hidden border border-gold-500/30 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop" alt="Rajnawabi Carved Wooden Interior" class="w-full h-[350px] sm:h-[420px] lg:h-[450px] object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-mahogany-950 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 p-3.5 sm:p-4 bg-mahogany-950/85 backdrop-blur-md border border-gold-500/30 rounded">
+                            <p class="font-royal text-gold-400 text-sm sm:text-base italic">"A regal feast beneath glowing chandeliers and hand-carved mahogany archways."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-5 sm:space-y-6 gsap-about-text">
+                    <span class="text-gold-500 uppercase tracking-widest text-xs font-semibold">About Rajnawabi</span>
+                    <h2 class="font-royal text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-100 leading-tight">
+                        A Grand Unit of <span class="text-gold-500">Rajbari</span> Heritage
+                    </h2>
+                    <p class="text-stone-300 text-xs sm:text-sm lg:text-base leading-relaxed">
+                        The royal Rajnawabi restaurant is renowned for traditional Mughal cuisine. We are delighted to welcome our guests and exceed all your expectations with an opulent dining ambiance crafted with elaborate wooden carvings, shimmering sconces, and golden brassware.
+                    </p>
+                    <p class="text-stone-400 text-xs sm:text-sm lg:text-base leading-relaxed font-light">
+                        We are waiting for you every day to indulge in the royal flavors of dum biryanis, aromatic kebabs, and rich Mughlai gravies prepared with authentic royal heritage recipes.
+                    </p>
+                    
+                    <div class="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8">
+                        <div class="border-l-2 border-gold-500 pl-4">
+                            <p class="font-royal text-xl sm:text-2xl font-bold text-gold-400">100% Authentic</p>
+                            <p class="text-xs text-stone-400">Desi Ghee & Royal Spices</p>
+                        </div>
+                        <div class="border-l-2 border-gold-500 pl-4">
+                            <p class="font-royal text-xl sm:text-2xl font-bold text-gold-400">Throne Experience</p>
+                            <p class="text-xs text-stone-400">Mughal Royalty Ambiance</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <a href="#menu" class="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 font-semibold text-xs tracking-widest uppercase group">
+                            Learn More <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-2 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US SECTION -->
+    <section id="why-us" class="py-16 sm:py-20 bg-mahogany-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12 sm:mb-16">
+            <h2 class="font-royal text-3xl sm:text-4xl font-bold text-stone-100">Why Choose Us?</h2>
+            <p class="text-stone-400 text-sm mt-2">Here millions of royals are happy with us</p>
+            <div class="w-16 h-0.5 bg-gold-500 mx-auto mt-4"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div class="p-6 sm:p-8 rounded-lg bg-mahogany-900 border border-gold-500/20 text-center hover:border-gold-500/50 transition-all duration-300 group hover:-translate-y-1 gsap-why-card">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gold-500/10 text-gold-500 mx-auto flex items-center justify-center text-xl sm:text-2xl mb-5 sm:mb-6 group-hover:bg-gold-500 group-hover:text-mahogany-950 transition-colors">
+                    <i class="fa-solid fa-drumstick-bite"></i>
+                </div>
+                <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100 mb-2.5 sm:mb-3">Fresh Royal Ingredients</h3>
+                <p class="text-stone-400 text-xs leading-relaxed">We serve the finest food enriched with saffron, cardamoms, and 100% pure desi ghee (No Dalda).</p>
+            </div>
+
+            <div class="p-6 sm:p-8 rounded-lg bg-mahogany-900 border border-gold-500/20 text-center hover:border-gold-500/50 transition-all duration-300 group hover:-translate-y-1 gsap-why-card">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gold-500/10 text-gold-500 mx-auto flex items-center justify-center text-xl sm:text-2xl mb-5 sm:mb-6 group-hover:bg-gold-500 group-hover:text-mahogany-950 transition-colors">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100 mb-2.5 sm:mb-3">Authentic Dum Preparation</h3>
+                <p class="text-stone-400 text-xs leading-relaxed">Slow-cooked in sealed clay handi vessels over a gentle flame to absorb deep earthy aromas.</p>
+            </div>
+
+            <div class="p-6 sm:p-8 rounded-lg bg-mahogany-900 border border-gold-500/20 text-center hover:border-gold-500/50 transition-all duration-300 group hover:-translate-y-1 gsap-why-card">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gold-500/10 text-gold-500 mx-auto flex items-center justify-center text-xl sm:text-2xl mb-5 sm:mb-6 group-hover:bg-gold-500 group-hover:text-mahogany-950 transition-colors">
+                    <i class="fa-solid fa-wine-glass"></i>
+                </div>
+                <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100 mb-2.5 sm:mb-3">Regal Hospitality</h3>
+                <p class="text-stone-400 text-xs leading-relaxed">Experience royal court dining served in classic brass tumblers, clay pots, and fine chinaware.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FULL RESTAURANT MENU SECTION -->
+    <section id="menu" class="py-16 sm:py-20 lg:py-24 bg-mahogany-900 border-t border-gold-500/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 sm:mb-12">
+                <span class="text-gold-500 text-xs uppercase tracking-widest font-semibold">Imperial Dining</span>
+                <h2 class="font-royal text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-100 mt-1">Rajnawabi Royal Menu</h2>
+                <p class="text-stone-400 text-sm mt-3">Selected delicacies crafted for true Nawabi connoisseurs</p>
+                <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mt-4"></div>
+            </div>
+
+            <!-- Menu Category Filter Tabs (Horizontally scrollable on mobile/tablet) -->
+            <div class="flex items-center justify-start sm:justify-center overflow-x-auto no-scrollbar gap-2 sm:gap-3 mb-10 sm:mb-12 py-2 px-1">
+                <button class="menu-tab shrink-0 px-4 sm:px-5 py-2 rounded-full border border-gold-500 bg-gold-500 text-mahogany-950 text-xs font-semibold tracking-wider uppercase transition-all shadow" data-filter="all">All</button>
+                <button class="menu-tab shrink-0 px-4 sm:px-5 py-2 rounded-full border border-gold-500/30 text-stone-400 hover:text-gold-400 text-xs font-semibold tracking-wider uppercase transition-all" data-filter="kebabs">Kebabs & Starters</button>
+                <button class="menu-tab shrink-0 px-4 sm:px-5 py-2 rounded-full border border-gold-500/30 text-stone-400 hover:text-gold-400 text-xs font-semibold tracking-wider uppercase transition-all" data-filter="curries">Main Course Curries</button>
+                <button class="menu-tab shrink-0 px-4 sm:px-5 py-2 rounded-full border border-gold-500/30 text-stone-400 hover:text-gold-400 text-xs font-semibold tracking-wider uppercase transition-all" data-filter="biryani">Biryani & Pulao</button>
+                <button class="menu-tab shrink-0 px-4 sm:px-5 py-2 rounded-full border border-gold-500/30 text-stone-400 hover:text-gold-400 text-xs font-semibold tracking-wider uppercase transition-all" data-filter="breads">Rice & Breads</button>
+                <button class="menu-tab shrink-0 px-4 sm:px-5 py-2 rounded-full border border-gold-500/30 text-stone-400 hover:text-gold-400 text-xs font-semibold tracking-wider uppercase transition-all" data-filter="salads">Salads & Raitas</button>
+                <button class="menu-tab shrink-0 px-4 sm:px-5 py-2 rounded-full border border-gold-500/30 text-stone-400 hover:text-gold-400 text-xs font-semibold tracking-wider uppercase transition-all" data-filter="desserts">Desserts</button>
+                <button class="menu-tab shrink-0 px-4 sm:px-5 py-2 rounded-full border border-gold-500/30 text-stone-400 hover:text-gold-400 text-xs font-semibold tracking-wider uppercase transition-all" data-filter="beverages">Beverages</button>
+            </div>
+
+            <!-- MENU GRID CONTAINERS -->
+            <div id="menu-items-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+
+                <!-- CATEGORY 1: KEBABS & STARTERS -->
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="kebabs">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Tandoori Chicken</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0 text-right">₹499 <span class="text-[11px] text-stone-500 font-normal">/ Full</span> <br> <span class="text-sm">₹299</span> <span class="text-[11px] text-stone-500 font-normal">/ Half</span></span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Juicy chicken marinated overnight with yogurt & Indian spices, roasted in clay oven. (Full 8pcs / Half 4pcs)</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">★ Clay Oven Specialty</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="kebabs">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Afghani Chicken Tangri Kebab</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹399</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Creamy cashew & yogurt marination, melt-in-mouth texture. (4pcs)</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Chef's Selection</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="kebabs">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Chicken Tikka Kebab</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹299</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Tender boneless chicken cubes, smoky & spiced. (6pcs)</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Smoky Grill</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="kebabs">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Chicken Rashmi Kebab</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹349</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Silky, mildly spiced chicken morsels cooked to perfection. (6pcs)</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Royal Kebab</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="kebabs">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Chicken Sheekh Kebab</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹299</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Minced chicken with herbs & spices, chargrilled to perfection. (6pcs)</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Chargrilled</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="kebabs">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Mutton Sheekh Kebab</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹599</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Premium minced mutton rolled on skewers, clay-oven grilled. (6pcs)</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">★ Royal Mutton Delight</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="kebabs">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Tandoori Paneer Tikka</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹249</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Cottage cheese chunks marinated in tandoori masala, roasted golden. (6pcs)</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Vegetarian Specialty</span>
+                </div>
+
+                <!-- CATEGORY 2: MAIN COURSE CURRIES & SPECIALTIES -->
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="curries">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Chicken Kasa</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹249</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">A Bengal-Mughlai classic. Juicy chicken pieces slow-cooked in onion-tomato masala with a touch of mustard oil and whole spices.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Bengal-Mughlai Classic</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="curries">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Chicken Bharta</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹299</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Smoked and shredded chicken blended with spices, cream, and ghee – silky, smooth, and flavorful.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Nawabi Comfort Curry</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="curries">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Chicken Chaap</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹199</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Chicken leg quarters marinated with yogurt, cashew paste, saffron, & Mughlai spices, shallow-fried in ghee.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Kolkata Mughlai Legend</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="curries">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Mutton Chaap</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹349</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Tender mutton marinated with yogurt, saffron, cashew, and Mughlai spices, slow-cooked in ghee. Straight from Awadhi kitchens.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Awadhi Special</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="curries">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Chicken Rezaala</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹249</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Soft chicken cooked in white Rezala gravy – yogurt, cashew, poppy seeds, and kewra essence create a fragrant curry.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">White Gravy Fragrant</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="curries">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Mutton Rezaala</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹399</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Signature Mughlai mutton simmered in rich white curry with yogurt, poppy seeds, cashew, and a touch of rose water.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">★ Royal Dastarkhwan Heritage</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="curries">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Kadhai Paneer</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹299</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Tender paneer cubes tossed with onions, capsicum, and crushed spices in a rustic kadhai masala.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Vegetarian Royal</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="curries">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Mushroom Masala</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹299</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Fresh mushrooms simmered in a rich tomato-onion gravy with Mughlai spices, finished with a drizzle of cream.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Earthy Nawabi Delight</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between border-gold-500/40" data-category="curries">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-gold-400">Chicken Champaran Handi</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0 text-right">₹1199 <span class="text-[11px] text-stone-500 font-normal">/ 16pc</span> <br> <span class="text-sm">₹599</span> <span class="text-[11px] text-stone-500 font-normal">/ 8pc</span></span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Rajbari Bengali Fusion. Tender chicken marinated with mustard oil, garlic & spices, sealed in a clay handi and slow-cooked over flame.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">★ Rajbari Clay Pot Signature</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between border-gold-500/40" data-category="curries">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-gold-400">Mutton Champaran Handi</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0 text-right">₹2399 <span class="text-[11px] text-stone-500 font-normal">/ 16pc</span> <br> <span class="text-sm">₹1199</span> <span class="text-[11px] text-stone-500 font-normal">/ 8pc</span></span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Rustic treasure meets Bengali tradition. Tender mutton marinated in pungent mustard oil & whole spices, dough-sealed & slow-cooked for hours in clay handi.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">★ Imperial Royal Fusion</span>
+                </div>
+
+                <!-- CATEGORY 3: BIRYANI & PULAO -->
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="biryani">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Nawabi Chicken Biryani</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹249</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Pure Desi Ghee (No Dalda). Prepared with premium Cock Chicken, whole egg, and Sonali Aloo layered with saffron & basmati.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">★ Desi Ghee Special</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between border-gold-500/40" data-category="biryani">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-gold-400">Nawabi Mutton Biryani</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹399</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Pure Desi Ghee (No Dalda). Tender 200g mutton pieces, egg, and Sonali Aloo, slow-dum cooked with golden basmati, saffron & kewra essence.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">★ Signature Rajnawabi Dish</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="biryani">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Salami Chicken Biryani</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹149</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Pure Desi Ghee (No Dalda). Broiler chicken, boiled egg, iconic Sonali Aloo slow-cooked in pure ghee.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Pocket-Friendly Nawabi</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="biryani">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Egg Biryani</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹99</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Pure Desi Ghee (No Dalda). Golden basmati rice layered with fried boiled eggs, Sonali Aloo, saffron, and pure ghee.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Desi Ghee Classic</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="biryani">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Aloo Biryani</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹79</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Pure Desi Ghee (No Dalda). Fragrant basmati slow-cooked with saffron, ghee, whole spices, served with Sonali Aloo.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Soulful Cousin</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="biryani">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Nawabi Murgh Pulao</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹249</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Dhaka's Nanna Style. Soft Gobindobhog rice, tender chicken, and refined Mughlai spices – elegance over extravagance.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Dhaka's Nanna Style</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="biryani">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Nawabi Mutton Pulao</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹399</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Dhaka's Nanna Style. Two tender pieces of mutton paired with Gobindobhog rice, slow-cooked with saffron & kewra essence.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Royal Mehfil Specialty</span>
+                </div>
+
+                <!-- CATEGORY 4: RICE & BREADS -->
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="breads">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Steamed Rice</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹149</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Fluffy, long-grain rice gently steamed to perfection – timeless companion to gravies.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Steamed Basmati</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="breads">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Peas Pulao</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹249</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Fragrant basmati rice cooked with green peas, cumin, and a touch of desi ghee.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Mughal Bawarchi Recipe</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="breads">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Rumali Roti</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹39 <span class="text-[11px] text-stone-500 font-normal">(1 pc)</span></span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Thin, soft, hand-stretched bread delicate as a handkerchief, perfect to scoop up kebabs & chaap.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Hand-Stretched Soft Bread</span>
+                </div>
+
+                <!-- CATEGORY 5: SALADS, RAITAS & ACCOMPANIMENTS -->
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="salads">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Burhani</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹29</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Bengal's classic garlic-spiced yogurt drink, digestive and refreshing.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">★ Classic Nawabi Drink</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="salads">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Garden Fresh Green Salad</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹59</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Crisp seasonal greens with a refreshing crunch.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Fresh Greens</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="salads">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Plain Raita</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹39</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">A cooling yogurt blend, lightly seasoned with roasted spices.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Cooling Yogurt</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="salads">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Boondi Raita</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹49</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Wholesome curd blend with golden crispy boondi pearls.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Crispy Boondi</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="salads">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Pineapple Raita</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹79</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Sweet juicy pineapple chunks embedded in thick creamy curd.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Sweet & Tangy</span>
+                </div>
+
+                <!-- CATEGORY 6: DESSERTS -->
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="desserts">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Phirni</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹79</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Mughal-era delicacy of ground rice slow-cooked in milk, cardamom, saffron, and pistachios. Served chilled in clay Matka.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">★ Earthen Clay Matka</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="desserts">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Royal Gourmet Ice Cream</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹149</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Flavors: Coffee Walnut, Choco Cream, Jaggery Almond, Mawa Malai, Rajbhog, Cashew Scotch.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Artisanal Flavors</span>
+                </div>
+
+                <!-- CATEGORY 7: BEVERAGES -->
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="beverages">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Virgin Mojito</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹149</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Refreshing crushed mint, lime, and sparkling soda.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Mocktail Cooler</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="beverages">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Blue Ocean</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹149</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Vibrant blue citrus & tropical fruit blend mocktail.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Tropical Mocktail</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="beverages">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Soft Drink</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹49</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Thums Up, Coca Cola, Sprite.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Chilled Beverage</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="beverages">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Masala Soft Drink</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹79</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Fizzy uplift with a splash of roasted Indian chat masala spice.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Spiced Cooler</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="beverages">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Fresh Lime Soda</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹79</span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Zesty fresh lime with sparkling soda (Sweet / Salted / Mixed).</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Classic Refresher</span>
+                </div>
+
+                <div class="menu-item bg-mahogany-950 border border-gold-500/20 p-5 sm:p-6 rounded-lg hover:border-gold-500/50 transition-all flex flex-col justify-between" data-category="beverages">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Resort Paradise Bottled Water</h3>
+                            <span class="font-royal text-base sm:text-lg font-bold text-gold-400 shrink-0">₹40 <span class="text-[11px] text-stone-500 font-normal">(1L)</span></span>
+                        </div>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Pure, refreshing mineral water bottled exclusively at Resort Paradise.</p>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold text-gold-500 tracking-wider">Packaged Drinking Water</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ORDER DIRECTLY ONLINE SECTION (ZOMATO & SWIGGY) -->
+    <section id="order-online" class="py-16 sm:py-20 bg-mahogany-950 border-t border-gold-500/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 sm:mb-12">
+                <span class="text-gold-500 text-xs uppercase tracking-widest font-semibold">Doorstep Royal Feast</span>
+                <h2 class="font-royal text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-100 mt-1">Order Directly Online</h2>
+                <p class="text-stone-400 text-sm mt-2">Get hot, fragrant Nawabi Biryanis & Kebabs delivered straight to your home</p>
+                <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+                <!-- Zomato Card -->
+                <div class="bg-mahogany-900 border border-gold-500/20 rounded-xl p-6 sm:p-8 flex flex-col justify-between hover:border-zomato/60 transition-all group hover:-translate-y-1 shadow-xl">
+                    <div>
+                        <div class="flex items-center justify-between mb-5 sm:mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-zomato/10 border border-zomato/30 flex items-center justify-center text-zomato text-2xl font-bold">
+                                <i class="fa-solid fa-utensils"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
+                                <i class="fa-solid fa-star text-xs mr-1"></i> 4.5 Rated
+                            </span>
+                        </div>
+                        <h3 class="font-royal text-xl sm:text-2xl font-bold text-stone-100 mb-2">Order on Zomato</h3>
+                        <p class="text-xs text-stone-400 leading-relaxed mb-6 font-light">
+                            Craving royal delicacies at home? Fast delivery with exclusive Zomato discounts, live tracking, and hygienic packaging.
+                        </p>
+                    </div>
+                    <a href="https://www.zomato.com" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 bg-zomato hover:bg-red-700 text-white text-xs font-bold uppercase tracking-wider rounded text-center transition-colors flex items-center justify-center gap-2">
+                        Order via Zomato <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Swiggy Card -->
+                <div class="bg-mahogany-900 border border-gold-500/20 rounded-xl p-6 sm:p-8 flex flex-col justify-between hover:border-swiggy/60 transition-all group hover:-translate-y-1 shadow-xl">
+                    <div>
+                        <div class="flex items-center justify-between mb-5 sm:mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-swiggy/10 border border-swiggy/30 flex items-center justify-center text-swiggy text-2xl font-bold">
+                                <i class="fa-solid fa-person-biking"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
+                                <i class="fa-solid fa-bolt text-xs mr-1"></i> Superfast Delivery
+                            </span>
+                        </div>
+                        <h3 class="font-royal text-xl sm:text-2xl font-bold text-stone-100 mb-2">Order on Swiggy</h3>
+                        <p class="text-xs text-stone-400 leading-relaxed mb-6 font-light">
+                            Lightning fast delivery directly from Rajnawabi kitchen. Freshly cooked, sealed in hot thermal containers.
+                        </p>
+                    </div>
+                    <a href="https://www.swiggy.com" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 bg-swiggy hover:bg-orange-600 text-white text-xs font-bold uppercase tracking-wider rounded text-center transition-colors flex items-center justify-center gap-2">
+                        Order via Swiggy <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- WhatsApp Direct Order Card -->
+                <div class="bg-mahogany-900 border border-gold-500/30 rounded-xl p-6 sm:p-8 flex flex-col justify-between hover:border-gold-500/60 transition-all group hover:-translate-y-1 shadow-xl md:col-span-2 lg:col-span-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-5 sm:mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl font-bold">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400">
+                                Royal Concierge
+                            </span>
+                        </div>
+                        <h3 class="font-royal text-xl sm:text-2xl font-bold text-stone-100 mb-2">Direct Express Order</h3>
+                        <p class="text-xs text-stone-400 leading-relaxed mb-6 font-light">
+                            Order bulk catering, royal family thalis, or direct takeaway by chatting with our manager directly on WhatsApp.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/919876543210?text=Hello%20Rajnawabi,%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider rounded text-center transition-colors flex items-center justify-center gap-2">
+                        Chat & Order Directly <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ANIMATED BENTO GALLERY SECTION -->
+    <section id="gallery" class="py-16 sm:py-20 lg:py-24 bg-mahogany-950 border-t border-gold-500/10 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <span class="text-gold-500 text-xs uppercase tracking-widest font-semibold">Visual Feast</span>
+                <h2 class="font-royal text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-100 mt-1">Royal Gallery</h2>
+                <p class="text-stone-400 text-sm mt-3">A glimpse into our opulent dining atmosphere and artisanal creations</p>
+                <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mt-4"></div>
+            </div>
+
+            <!-- Bento Grid Structure -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6" id="gallery-grid">
+                
+                <!-- Gallery Item 1 (Wide Feature) -->
+                <div class="gallery-item group relative h-72 sm:h-80 rounded-xl overflow-hidden border border-gold-500/20 cursor-pointer shadow-2xl lg:col-span-2">
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=1200&auto=format&fit=crop" alt="Nawabi Dum Biryani" class="gallery-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-mahogany-950 via-mahogany-950/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 transform translate-y-1 sm:translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <span class="text-[10px] text-gold-500 font-bold tracking-widest uppercase">Signature Dish</span>
+                        <h3 class="font-royal text-xl sm:text-2xl font-bold text-stone-100">Nawabi Mutton Dum Biryani</h3>
+                        <p class="text-xs text-stone-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 font-light">Slow-cooked in pure Desi Ghee & saffron Basmati layers.</p>
+                    </div>
+                    <div class="absolute top-4 right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-mahogany-900/80 border border-gold-500/40 flex items-center justify-center text-gold-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="fa-solid fa-expand text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item group relative h-72 sm:h-80 rounded-xl overflow-hidden border border-gold-500/20 cursor-pointer shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=800&auto=format&fit=crop" alt="Smoky Tandoori Kebab" class="gallery-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-mahogany-950 via-mahogany-950/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 transform translate-y-1 sm:translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <span class="text-[10px] text-gold-500 font-bold tracking-widest uppercase">Starters</span>
+                        <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Chargrilled Sheekh Kebabs</h3>
+                        <p class="text-xs text-stone-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 font-light">Melt-in-mouth spiced minced mutton roasted over embers.</p>
+                    </div>
+                    <div class="absolute top-4 right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-mahogany-900/80 border border-gold-500/40 flex items-center justify-center text-gold-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="fa-solid fa-expand text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item group relative h-72 sm:h-80 rounded-xl overflow-hidden border border-gold-500/20 cursor-pointer shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop" alt="Carved Mahogany Dining Interior" class="gallery-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-mahogany-950 via-mahogany-950/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 transform translate-y-1 sm:translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <span class="text-[10px] text-gold-500 font-bold tracking-widest uppercase">Ambience</span>
+                        <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Carved Mahogany Court</h3>
+                        <p class="text-xs text-stone-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 font-light">Opulent wooden arches and glowing crystal sconces.</p>
+                    </div>
+                    <div class="absolute top-4 right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-mahogany-900/80 border border-gold-500/40 flex items-center justify-center text-gold-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="fa-solid fa-expand text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item group relative h-72 sm:h-80 rounded-xl overflow-hidden border border-gold-500/20 cursor-pointer shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Champaran Handi Pot" class="gallery-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-mahogany-950 via-mahogany-950/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 transform translate-y-1 sm:translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <span class="text-[10px] text-gold-500 font-bold tracking-widest uppercase">Clay Pot Specialty</span>
+                        <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Champaran Ahuna Handi</h3>
+                        <p class="text-xs text-stone-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 font-light">Sealed in earthen pots and slow-cooked over gentle flame.</p>
+                    </div>
+                    <div class="absolute top-4 right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-mahogany-900/80 border border-gold-500/40 flex items-center justify-center text-gold-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="fa-solid fa-expand text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item group relative h-72 sm:h-80 rounded-xl overflow-hidden border border-gold-500/20 cursor-pointer shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=800&auto=format&fit=crop" alt="Royal Desserts & Mocktails" class="gallery-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-mahogany-950 via-mahogany-950/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 transform translate-y-1 sm:translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <span class="text-[10px] text-gold-500 font-bold tracking-widest uppercase">Sweet & Refreshers</span>
+                        <h3 class="font-royal text-lg sm:text-xl font-bold text-stone-100">Phirni & Virgin Coolers</h3>
+                        <p class="text-xs text-stone-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 font-light">Traditional clay bowl Phirni and sparkling citrus mojitos.</p>
+                    </div>
+                    <div class="absolute top-4 right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-mahogany-900/80 border border-gold-500/40 flex items-center justify-center text-gold-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="fa-solid fa-expand text-xs"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- LIGHTBOX MODAL POPUP -->
+        <div id="gallery-modal" class="fixed inset-0 z-50 bg-mahogany-950/95 backdrop-blur-xl hidden items-center justify-center p-4 sm:p-8">
+            <button id="close-modal" class="absolute top-6 right-6 text-stone-400 hover:text-gold-400 text-3xl transition-colors focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modal-content" class="max-w-4xl w-full text-center space-y-4">
+                <div class="relative rounded-xl overflow-hidden border border-gold-500/30 max-h-[65vh] sm:max-h-[70vh]">
+                    <img id="modal-img" src="" alt="Gallery Preview" class="w-full h-full object-contain max-h-[65vh] sm:max-h-[70vh] mx-auto">
+                </div>
+                <h3 id="modal-title" class="font-royal text-2xl sm:text-3xl font-bold text-gold-400"></h3>
+                <p id="modal-desc" class="text-stone-300 text-xs sm:text-sm max-w-lg mx-auto font-light leading-relaxed"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INGREDIENTS SECTION -->
+    <section class="py-16 sm:py-20 bg-mahogany-900 border-t border-gold-500/10 relative">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="font-royal text-3xl sm:text-4xl font-bold text-stone-100 mb-4">The Best Ingredients</h2>
+            <p class="text-stone-400 text-xs sm:text-sm leading-relaxed mb-10 sm:mb-12">
+                We take an enormous amount of pride in sourcing our ingredients carefully to ensure that the taste of our food is as delicious and authentic as possible.
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 justify-center">
+                <div class="flex flex-col items-center gap-2.5">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-2xl sm:text-3xl text-gold-400">
+                        <i class="fa-solid fa-pepper-hot"></i>
+                    </div>
+                    <span class="font-royal font-bold text-stone-200 text-sm sm:text-base">Kashmiri Red Spices</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-2.5">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-2xl sm:text-3xl text-gold-400">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <span class="font-royal font-bold text-stone-200 text-sm sm:text-base">Pure Saffron</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-2.5">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-2xl sm:text-3xl text-gold-400">
+                        <i class="fa-solid fa-jar"></i>
+                    </div>
+                    <span class="font-royal font-bold text-stone-200 text-sm sm:text-base">100% Desi Cow Ghee</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-2.5">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-2xl sm:text-3xl text-gold-400">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <span class="font-royal font-bold text-stone-200 text-sm sm:text-base">Handground Herbs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCOVER BANNER / PARALLAX -->
+    <section id="ambience" class="relative py-24 sm:py-32 bg-cover bg-center bg-fixed text-center" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop');">
+        <div class="absolute inset-0 bg-mahogany-950/85"></div>
+        <div class="relative z-10 max-w-3xl mx-auto px-4 space-y-5 sm:space-y-6">
+            <span class="text-gold-400 uppercase tracking-widest text-xs font-semibold">Regal Experience</span>
+            <h2 class="font-royal text-3xl sm:text-5xl lg:text-6xl font-bold text-stone-100">Discover Royal Grandeur</h2>
+            <p class="text-stone-300 text-xs sm:text-base font-light leading-relaxed">
+                Discover new facets of taste together with RAJNAWABI (A Unit of Rajbari). Dine beneath grand illuminated arches and majestic thrones crafted for true royalty.
+            </p>
+            <a href="#contact" class="inline-block mt-3 px-7 sm:px-8 py-3.5 bg-gradient-to-r from-gold-600 to-gold-500 text-mahogany-950 font-bold text-xs tracking-widest uppercase rounded-sm hover:from-gold-500 hover:to-gold-400 transition-all shadow-lg shadow-gold-500/20">
+                Book Royal Throne Table
+            </a>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="py-16 sm:py-24 bg-mahogany-900 border-t border-gold-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 sm:mb-12">
+                <div>
+                    <h2 class="font-royal text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-100">What People Say About Us</h2>
+                    <p class="text-stone-400 text-sm mt-2">Come and join us to be enchanted by the magic of rich Mughlai flavors.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-mahogany-950 p-6 rounded-lg border border-gold-500/20 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex text-gold-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-stone-300 text-sm font-light italic">"I loved it very much! The dark wooden carved interior and chandeliers gave an absolute royal vibe."</p>
+                    </div>
+                    <div class="pt-3 border-t border-gold-500/10 flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-xs">I</div>
+                        <div>
+                            <p class="text-xs font-bold text-stone-200">Ivan Patron</p>
+                            <p class="text-[10px] text-stone-500">Regular Guest</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-mahogany-950 p-6 rounded-lg border border-gold-500/20 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex text-gold-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-stone-300 text-sm font-light italic">"The Mutton Dum Biryani cooked in pure Desi Ghee is unparalleled. Sitting near the illuminated RAJNAWABI arch felt like a king's banquet!"</p>
+                    </div>
+                    <div class="pt-3 border-t border-gold-500/10 flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-xs">R</div>
+                        <div>
+                            <p class="text-xs font-bold text-stone-200">Rajesh Roy</p>
+                            <p class="text-[10px] text-stone-500">Food Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-mahogany-950 p-6 rounded-lg border border-gold-500/20 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex text-gold-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-stone-300 text-sm font-light italic">"The Mutton Champaran Handi sealed in clay pots is unbelievable. Truly a unit of Rajbari preserving authentic Nawabi heritage."</p>
+                    </div>
+                    <div class="pt-3 border-t border-gold-500/10 flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-xs">A</div>
+                        <div>
+                            <p class="text-xs font-bold text-stone-200">Ananya Sharma</p>
+                            <p class="text-[10px] text-stone-500">Patron</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL MEDIA OPTIMIZATION (SMO) SECTION -->
+    <section id="social-smo" class="py-16 sm:py-20 bg-mahogany-950 border-t border-gold-500/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 sm:mb-12">
+                <span class="text-gold-500 text-xs uppercase tracking-widest font-semibold">Join Our Digital Royalty</span>
+                <h2 class="font-royal text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-100 mt-1">#RajnawabiMoments</h2>
+                <p class="text-stone-400 text-sm mt-2">Tag us in your royal dining stories & posts to get featured on our official pages</p>
+                <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mt-4"></div>
+            </div>
+
+            <!-- Social Media Buttons Bar -->
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-12">
+                <a href="https://instagram.com" target="_blank" class="px-5 sm:px-6 py-3 rounded-full bg-mahogany-900 border border-gold-500/30 hover:border-gold-500 text-stone-200 hover:text-gold-400 text-xs font-semibold tracking-wider uppercase transition-all flex items-center gap-2">
+                    <i class="fa-brands fa-instagram text-gold-500 text-base"></i> Instagram
+                </a>
+                <a href="https://facebook.com" target="_blank" class="px-5 sm:px-6 py-3 rounded-full bg-mahogany-900 border border-gold-500/30 hover:border-gold-500 text-stone-200 hover:text-gold-400 text-xs font-semibold tracking-wider uppercase transition-all flex items-center gap-2">
+                    <i class="fa-brands fa-facebook-f text-gold-500 text-base"></i> Facebook
+                </a>
+                <a href="https://youtube.com" target="_blank" class="px-5 sm:px-6 py-3 rounded-full bg-mahogany-900 border border-gold-500/30 hover:border-gold-500 text-stone-200 hover:text-gold-400 text-xs font-semibold tracking-wider uppercase transition-all flex items-center gap-2">
+                    <i class="fa-brands fa-youtube text-gold-500 text-base"></i> YouTube
+                </a>
+            </div>
+
+            <!-- Social Feed Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Social Card 1 -->
+                <div class="bg-mahogany-900 border border-gold-500/20 rounded-xl overflow-hidden group">
+                    <div class="relative h-60 sm:h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=800&auto=format&fit=crop" alt="Instagram Post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-mahogany-950/80 flex items-center justify-center text-gold-400">
+                            <i class="fa-brands fa-instagram text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <p class="text-xs text-gold-400 font-semibold">@rajnawabi_official</p>
+                        <p class="text-xs text-stone-300 font-light line-clamp-2">"Smoky, fragrant, and rich in Desi Ghee! Royal Mutton Biryani prepared fresh."</p>
+                        <span class="text-[10px] text-stone-500 block">#Rajnawabi #MughlaiDining #BiryaniLovers</span>
+                    </div>
+                </div>
+
+                <!-- Social Card 2 -->
+                <div class="bg-mahogany-900 border border-gold-500/20 rounded-xl overflow-hidden group">
+                    <div class="relative h-60 sm:h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop" alt="Facebook Post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-mahogany-950/80 flex items-center justify-center text-gold-400">
+                            <i class="fa-brands fa-facebook-f text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <p class="text-xs text-gold-400 font-semibold">@RajnawabiRajbari</p>
+                        <p class="text-xs text-stone-300 font-light line-clamp-2">"Celebrated our anniversary at the Golden Throne. Unforgettable royal service!"</p>
+                        <span class="text-[10px] text-stone-500 block">#RajbariCampus #RoyalAmbiance #NawabiVibes</span>
+                    </div>
+                </div>
+
+                <!-- Social Card 3 -->
+                <div class="bg-mahogany-900 border border-gold-500/20 rounded-xl overflow-hidden group">
+                    <div class="relative h-60 sm:h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=800&auto=format&fit=crop" alt="Social Post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-mahogany-950/80 flex items-center justify-center text-gold-400">
+                            <i class="fa-brands fa-instagram text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <p class="text-xs text-gold-400 font-semibold">@foodie_kolkata</p>
+                        <p class="text-xs text-stone-300 font-light line-clamp-2">"Best Sheekh Kebabs in town. Soft, juicy, and grilled to absolute perfection."</p>
+                        <span class="text-[10px] text-stone-500 block">#KolkataFoodies #KebabsOfIndia #Rajbari</span>
+                    </div>
+                </div>
+
+                <!-- Social Card 4 -->
+                <div class="bg-mahogany-900 border border-gold-500/20 rounded-xl overflow-hidden group">
+                    <div class="relative h-60 sm:h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Social Post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-mahogany-950/80 flex items-center justify-center text-gold-400">
+                            <i class="fa-brands fa-youtube text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <p class="text-xs text-gold-400 font-semibold">Rajnawabi Heritage Kitchens</p>
+                        <p class="text-xs text-stone-300 font-light line-clamp-2">"Behind the scenes: Slow Dum Pukht cooking technique in traditional earthen pots."</p>
+                        <span class="text-[10px] text-stone-500 block">#BehindTheScenes #ChamparanHandi #MughalSecrets</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & RESERVATION SECTION -->
+    <section id="contact" class="py-16 sm:py-24 bg-mahogany-900 border-t border-gold-500/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+                <div class="lg:col-span-7 bg-mahogany-950 p-6 sm:p-10 rounded-xl border border-gold-500/20 shadow-2xl">
+                    <h2 class="font-royal text-2xl sm:text-3xl font-bold text-stone-100 mb-2">Reserve Your Royal Feast</h2>
+                    <p class="text-stone-400 text-xs mb-6 sm:mb-8">Book a table in advance to experience authentic Nawabi dining.</p>
+                    
+                    <form class="space-y-5 sm:space-y-6" onsubmit="event.preventDefault(); alert('Your Royal Reservation Request has been received!');">
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-300 uppercase tracking-wider mb-2">Enter your name:</label>
+                            <input type="text" placeholder="e.g. Maharajah Vikram" required class="w-full bg-mahogany-900 border border-gold-500/20 rounded px-4 py-3 text-stone-200 text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-300 uppercase tracking-wider mb-2">Your phone number:</label>
+                            <input type="tel" placeholder="+91 98765 43210" required class="w-full bg-mahogany-900 border border-gold-500/20 rounded px-4 py-3 text-stone-200 text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-300 uppercase tracking-wider mb-2">Enter message or guest count:</label>
+                            <textarea rows="4" placeholder="Mention guest count, date, and special requests..." class="w-full bg-mahogany-900 border border-gold-500/20 rounded px-4 py-3 text-stone-200 text-sm focus:outline-none focus:border-gold-500 transition-colors"></textarea>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox" id="consent" required class="accent-gold-500 w-4 h-4">
+                            <label for="consent" class="text-[11px] text-stone-400">I consent to the processing of my data according to royal court policy.</label>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-gold-600 to-gold-500 text-mahogany-950 font-bold text-xs uppercase tracking-widest rounded hover:from-gold-500 hover:to-gold-400 transition-all shadow-lg shadow-gold-500/20">
+                            Request a Table
+                        </button>
+                    </form>
+                </div>
+
+                <div class="lg:col-span-5 flex flex-col justify-between space-y-6 bg-mahogany-950/50 p-6 sm:p-8 rounded-xl border border-gold-500/10">
+                    <div>
+                        <h3 class="font-royal text-xl sm:text-2xl font-bold text-stone-100 mb-5 sm:mb-6">Contact Us Directly:</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-stone-400 uppercase font-semibold">Phone:</p>
+                                    <a href="tel:+919876543210" class="text-sm font-bold text-gold-400 hover:underline">+91 98765 43210</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-stone-400 uppercase font-semibold">Email:</p>
+                                    <a href="mailto:concierge@rajnawabi.com" class="text-sm font-bold text-gold-400 hover:underline">concierge@rajnawabi.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-stone-400 uppercase font-semibold">Location:</p>
+                                    <p class="text-sm font-medium text-stone-200">Grand Mughal Gateway, Rajbari Campus, West Bengal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-6 border-t border-gold-500/10">
+                        <p class="text-xs text-stone-400">Timing: <span class="text-gold-400 font-semibold">12:00 PM - 11:30 PM</span> (All Days)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-mahogany-950 border-t border-gold-500/20 py-12 text-center text-stone-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 space-y-4">
+            <h2 class="font-royal text-2xl font-bold text-gold-500 tracking-widest gold-glow uppercase">RAJNAWABI</h2>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-stone-400 font-semibold">A Unit of Rajbari • All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu & Menu Tabs & GSAP Animations -->
+    <script>
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        mobileMenuClose.addEventListener('click', toggleMobileMenu);
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Menu Category Filtering Logic
+        const menuTabs = document.querySelectorAll('.menu-tab');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        menuTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab style
+                menuTabs.forEach(t => {
+                    t.classList.remove('bg-gold-500', 'text-mahogany-950', 'border-gold-500', 'shadow');
+                    t.classList.add('border-gold-500/35', 'text-stone-400');
+                });
+                tab.classList.remove('border-gold-500/35', 'text-stone-400');
+                tab.classList.add('bg-gold-500', 'text-mahogany-950', 'border-gold-500', 'shadow');
+
+                const filter = tab.getAttribute('data-filter');
+
+                menuItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Gallery Modal Lightbox Logic
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const galleryModal = document.getElementById('gallery-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const closeModal = document.getElementById('close-modal');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('.gallery-img').src;
+                const title = item.querySelector('h3').innerText;
+                const desc = item.querySelector('p').innerText;
+
+                modalImg.src = img;
+                modalTitle.innerText = title;
+                modalDesc.innerText = desc;
+
+                galleryModal.classList.remove('hidden');
+                galleryModal.classList.add('flex');
+            });
+        });
+
+        function closeGalleryModal() {
+            galleryModal.classList.remove('flex');
+            galleryModal.classList.add('hidden');
+        }
+
+        closeModal.addEventListener('click', closeGalleryModal);
+        galleryModal.addEventListener('click', (e) => {
+            if (e.target === galleryModal) closeGalleryModal();
+        });
+
+        // Loader Progress & Hide Animation
+        window.addEventListener('load', () => {
+            const loaderProgress = document.getElementById('loader-progress');
+            const loaderWrapper = document.getElementById('loader-wrapper');
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.floor(Math.random() * 25) + 10;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        gsap.to(loaderWrapper, {
+                            opacity: 0,
+                            duration: 0.6,
+                            onComplete: () => loaderWrapper.style.display = 'none'
+                        });
+                    }, 200);
+                }
+                loaderProgress.style.width = progress + '%';
+            }, 120);
+
+            // GSAP Scroll Animations
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.from('.gsap-hero-text', {
+                y: 40,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out',
+                delay: 0.4
+            });
+
+            gsap.from('.gsap-hero-img', {
+                scale: 0.9,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out',
+                delay: 0.6
+            });
+
+            gsap.from('.gsap-about-img', {
+                scrollTrigger: {
+                    trigger: '#about',
+                    start: 'top 80%'
+                },
+                x: -50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+
+            gsap.from('.gsap-about-text', {
+                scrollTrigger: {
+                    trigger: '#about',
+                    start: 'top 80%'
+                },
+                x: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+
+            gsap.utils.toArray('.gsap-why-card').forEach((card, index) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%'
+                    },
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: index * 0.15,
+                    ease: 'power3.out'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
